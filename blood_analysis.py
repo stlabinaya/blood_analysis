@@ -38,6 +38,24 @@ def LDL_analysis(LDL_result):
     else:
         return "Normal"
 
+def TotChol_interface():
+    # Input should be TC=###
+    print("Total Cholesterol Interface")
+    print("Please input the results in the following format: ")
+    print("   TC=### where ### is the numeric result")
+    TC_input = input("Result: ")
+    TC_result = TC_input.split("=")
+    LDL_status=TotChol_analysis(int(TC_result[1]))
+    print("Total Cholesterol status is {}".format(LDL_status))
+    
+def TotChol_analysis(TC_result):
+    if TC_result < 200:
+        return "Normal"
+    elif 200 <= TC_result < 239:
+        return "Borderline high"
+    elif TC_result >= 239:
+        return "High"
+
 def interface():
     print("My Blood Analysis Calculator")
     keep_running = True
@@ -45,6 +63,7 @@ def interface():
         print("\nOptions: ")
         print("1-HDL analysis")
         print("2-LDL analysis")
+        print("3-Total Cholesterol analysis")
         print("9-Quit")
         choice = input("Choose an option: ")
         if choice == '9':
@@ -53,6 +72,8 @@ def interface():
             HDL_interface()
         elif choice == '2':
             LDL_interface()
+        elif choice == '3':
+            TotChol_interface()
 
 if __name__ == "__main__":
     interface()
