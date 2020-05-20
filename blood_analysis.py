@@ -24,6 +24,19 @@ def LDL_interface():
     print("Please input the results in the following format: ")
     print("   LDL=### where ### is the numeric result")
     LDL_input = input("Result: ")
+    LDL_result = LDL_input.split('=')
+    LDL_status = LDL_analysis(int(LDL_result[1]))
+    print("LDL status is {}".format(LDL_status))
+
+def LDL_analysis(LDL_result):
+    if LDL_result >= 190:
+        return "Very High"
+    elif 160 <= LDL_result <= 189:
+        return "High"
+    elif 130 <= LDL_result <= 159:
+        return "Borderline High"
+    else:
+        return "Normal"
 
 def interface():
     print("My Blood Analysis Calculator")
