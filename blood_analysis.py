@@ -18,18 +18,41 @@ def HDL_analysis(HDL_result):
     else:
         return "Bad"
 
+def LDL_interface():
+    # Input should be LDL=130
+    print("LDL Interface")
+    print("Please input the results in the following format: ")
+    print("   LDL=### where ### is the numeric result")
+    LDL_input = input("Result: ")
+    LDL_result = LDL_input.split('=')
+    LDL_status = LDL_analysis(int(LDL_result[1]))
+    print("LDL status is {}".format(LDL_status))
+
+def LDL_analysis(LDL_result):
+    if LDL_result >= 190:
+        return "Very High"
+    elif 160 <= LDL_result <= 189:
+        return "High"
+    elif 130 <= LDL_result <= 159:
+        return "Borderline High"
+    else:
+        return "Normal"
+
 def interface():
     print("My Blood Analysis Calculator")
     keep_running = True
     while keep_running:
         print("\nOptions: ")
         print("1-HDL analysis")
+        print("2-LDL analysis")
         print("9-Quit")
         choice = input("Choose an option: ")
         if choice == '9':
             keep_running = False
         elif choice == '1':
             HDL_interface()
+        elif choice == '2':
+            LDL_interface()
 
 if __name__ == "__main__":
     interface()
