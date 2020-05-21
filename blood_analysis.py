@@ -1,5 +1,13 @@
 # blood_analysis.py
 
+def HDL_analysis(HDL_result):
+    if HDL_result >= 60:
+        return "Good"
+    elif 40 <= HDL_result < 60:
+        return "Borderline"
+    else:
+        return "Bad"
+
 def HDL_interface():
     # Input should be HDL=66
     print("HDL Interface")
@@ -12,14 +20,6 @@ def HDL_interface():
         print("HDL status is {}".format(HDL_status))
     else:
         print('Bad Entry')
-
-def HDL_analysis(HDL_result):
-    if HDL_result >= 60:
-        return "Good"
-    elif 40 <= HDL_result < 60:
-        return "Borderline"
-    else:
-        return "Bad"
 
 def verify_entry(HDL_result):
     if HDL_result[0] != "HDL":
