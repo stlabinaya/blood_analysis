@@ -28,6 +28,16 @@ def test_line_generation():
     expected = 2
     assert answer == expected
 
+def test_third_point():
+    from blood_analysis import third_point
+    answer = third_point((1,1),(2,2),(3,3))
+    assert answer == True
+
+def test_third_point_wrong():
+    from blood_analysis import third_point
+    answer = third_point((1,1),(2,2),(4,5))
+    assert answer == False
+
 
 def test_slope():
     from blood_analysis import slope

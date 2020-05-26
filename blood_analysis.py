@@ -75,8 +75,14 @@ def newPoint(m, b, x):
     y = m * x + b
     return y
 
+
 def line_generation(p1, p2, x):
     return newPoint(slope(p1, p2)[0], slope(p1, p2)[1], x)
+
+
+def third_point(p1, p2, p3):
+    (m, b) = slope(p1, p2)
+    return p3[1] == m * p3[0] + b
 
 
 def interface():
