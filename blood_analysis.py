@@ -1,5 +1,6 @@
 # blood_analysis.py
 
+
 def HDL_interface():
     # Input should be HDL=66
     print("HDL Interface")
@@ -10,6 +11,7 @@ def HDL_interface():
     HDL_status = HDL_analysis(int(HDL_result[1]))
     print("HDL status is {}".format(HDL_status))
 
+
 def HDL_analysis(HDL_result):
     if HDL_result >= 60:
         return "Good"
@@ -17,6 +19,7 @@ def HDL_analysis(HDL_result):
         return "Borderline"
     else:
         return "Bad"
+
 
 def LDL_interface():
     # Input should be LDL=130
@@ -28,6 +31,7 @@ def LDL_interface():
     LDL_status = LDL_analysis(int(LDL_result[1]))
     print("LDL status is {}".format(LDL_status))
 
+
 def LDL_analysis(LDL_result):
     if LDL_result >= 190:
         return "Very High"
@@ -38,6 +42,7 @@ def LDL_analysis(LDL_result):
     else:
         return "Normal"
 
+
 def TotChol_interface():
     # Input should be TC=###
     print("Total Cholesterol Interface")
@@ -45,9 +50,10 @@ def TotChol_interface():
     print("   TC=### where ### is the numeric result")
     TC_input = input("Result: ")
     TC_result = TC_input.split("=")
-    LDL_status=TotChol_analysis(int(TC_result[1]))
+    LDL_status = TotChol_analysis(int(TC_result[1]))
     print("Total Cholesterol status is {}".format(LDL_status))
-    
+
+
 def TotChol_analysis(TC_result):
     if TC_result < 200:
         return "Normal"
@@ -55,6 +61,23 @@ def TotChol_analysis(TC_result):
         return "Borderline high"
     elif TC_result >= 239:
         return "High"
+
+
+def slope(p1, p2):
+    (x1, y1) = p1
+    (x2, y2) = p2
+    m = (y2 - y1) / (x2 - x1)
+    b = (y1 - m) * x1
+    return m, b
+
+
+def newPoint(m, b, x):
+    y = m * x + b
+    return y
+
+def line_generation(p1, p2, x):
+    return newPoint(slope(p1, p2)[0], slope(p1, p2)[1], x)
+
 
 def interface():
     print("My Blood Analysis Calculator")
@@ -74,6 +97,7 @@ def interface():
             LDL_interface()
         elif choice == '3':
             TotChol_interface()
+
 
 if __name__ == "__main__":
     interface()
