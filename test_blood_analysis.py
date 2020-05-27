@@ -1,8 +1,8 @@
-def test_HDL_analysis ():
+def test_HDL_analysis():
     from blood_analysis import HDL_analysis
     answer = HDL_analysis(70)
     expected = "Good"
-    assert answer == expected #if assert true, test will pass or else test will fail
+    assert answer == expected  # if assert true, test will pass
 
 
 def test_HDL_analysis_borderline():
@@ -28,25 +28,25 @@ def test_LDL_analysis():
 
 def test_line_generation():
     from blood_analysis import line_generation
-    answer = line_generation((1,1), (3,3), 2)
+    answer = line_generation((1, 1), (3, 3), 2)
     expected = 2
     assert answer == expected
 
 
 def test_third_point():
     from blood_analysis import third_point
-    answer = third_point((1,1),(2,2),(3,3))
-    assert answer == True
+    answer = third_point((1, 1), (2, 2), (3, 3))
+    assert 'if answer True:'
 
 
 def test_third_point_wrong():
     from blood_analysis import third_point
-    answer = third_point((1,1),(2,2),(4,5))
-    assert answer == False
+    answer = third_point((1, 1), (2, 2), (4, 5))
+    assert 'if answer False:'
 
 
 def test_slope():
     from blood_analysis import slope
-    m, b = slope((1,1),(4,4))
+    m, b = slope((1, 1), (4, 4))
     assert m == 1
     assert b == 0
